@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo sobre Conejos 🐰</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #764ba2;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            color: #f5576c;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            background: white;
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #764ba2;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #f5576c;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #667eea;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            color: #764ba2;
+            margin-top: 0;
+        }
+
+        .fun-fact {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 1.5rem;
+            border-left: 5px solid #f5576c;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+        }
+
+        .emoji {
+            font-size: 2rem;
+            margin-right: 0.5rem;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-top: 1rem;
+        }
+
+        li {
+            margin: 0.5rem 0;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            color: #764ba2;
+            font-weight: bold;
+        }
+
+        .behavior-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .behavior-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .behavior-item strong {
+            color: #764ba2;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🐰 El Maravilloso Mundo de los Conejos 🐰</h1>
+        <p>Todo lo que necesitas saber sobre estos adorables animales</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#intro">Introducción</a></li>
+            <li><a href="#razas">Razas</a></li>
+            <li><a href="#cuidados">Cuidados</a></li>
+            <li><a href="#alimentacion">Alimentación</a></li>
+            <li><a href="#comportamiento">Comportamiento</a></li>
+            <li><a href="#curiosidades">Curiosidades</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="intro">
+            <h2><span class="emoji">🐇</span>Introducción a los Conejos</h2>
+            <p>Los conejos son mamíferos lagomorfos de la familia Leporidae. A diferencia de lo que muchos piensan, no son roedores. Son animales sociales, inteligentes y muy cariñosos que pueden convertirse en excelentes mascotas cuando se les brinda el cuidado adecuado.</p>
+            
+            <div class="fun-fact">
+                <strong>💡 Dato Importante:</strong> Los conejos pueden vivir entre 8 y 12 años con los cuidados apropiados, ¡así que adoptar uno es un compromiso a largo plazo!
+            </div>
+
+            <h3>Características Generales</h3>
+            <ul>
+                <li><strong>Peso:</strong> Entre 1 y 8 kg dependiendo de la raza</li>
+                <li><strong>Esperanza de vida:</strong> 8-12 años (algunos llegan a 15 años)</li>
+                <li><strong>Temperatura corporal:</strong> 38.5°C - 40°C</li>
+                <li><strong>Gestación:</strong> Aproximadamente 31 días</li>
+                <li><strong>Visión:</strong> Campo visual de casi 360 grados</li>
+                <li><strong>Dientes:</strong> 28 dientes que crecen continuamente</li>
+            </ul>
+        </section>
+
+        <section id="razas">
+            <h2><span class="emoji">🎨</span>Razas Populares de Conejos</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Conejo Holandés Enano</h3>
+                    <p><strong>Peso:</strong> 0.9 - 1.1 kg</p>
+                    <p><strong>Características:</strong> Orejas pequeñas y erguidas, cabeza redondeada, cuerpo compacto. Son una de las razas más populares como mascotas.</p>
+                    <p><strong>Temperamento:</strong> Activos, juguetones y sociables.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Conejo Belier</h3>
+                    <p><strong>Peso:</strong> 2 - 2.5 kg</p>
+                    <p><strong>Características:</strong> Orejas caídas que cuelgan a los lados de la cabeza, cuerpo robusto y pelaje suave.</p>
+                    <p><strong>Temperamento:</strong> Muy tranquilos, dóciles y cariñosos. Ideales para familias.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Gigante de Flandes</h3>
+                    <p><strong>Peso:</strong> 6 - 10 kg</p>
+                    <p><strong>Características:</strong> Una de las razas más grandes. Cuerpo largo y musculoso, orejas grandes y erguidas.</p>
+                    <p><strong>Temperamento:</strong> Gentiles y dóciles a pesar de su tamaño.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Rex</h3>
+                    <p><strong>Peso:</strong> 3 - 4.5 kg</p>
+                    <p><strong>Características:</strong> Pelaje aterciopelado único, muy denso y suave al tacto. Bigotes rizados.</p>
+                    <p><strong>Temperamento:</strong> Calmados, inteligentes y fáciles de entrenar.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Angora</h3>
+                    <p><strong>Peso:</strong> 2 - 5 kg</p>
+                    <p><strong>Características:</strong> Pelaje extremadamente largo y suave que requiere cuidados especiales. Parecen bolas de algodón.</p>
+                    <p><strong>Temperamento:</strong> Tranquilos y sociables.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Cabeza de León</h3>
+                    <p><strong>Peso:</strong> 1.5 - 1.7 kg</p>
+                    <p><strong>Características:</strong> Melena de pelo largo alrededor de la cabeza, similar a un león. Cuerpo compacto.</p>
+                    <p><strong>Temperamento:</strong> Amigables, curiosos y muy sociables.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="cuidados">
+            <h2><span class="emoji">💚</span>Cuidados Esenciales</h2>
+            
+            <h3>🏠 Alojamiento</h3>
+            <ul>
+                <li><strong>Espacio:</strong> Necesitan un área amplia para moverse. Una jaula de mínimo 120x60x60 cm para razas pequeñas.</li>
+                <li><strong>Libertad:</strong> Deben salir de la jaula varias horas al día para ejercitarse.</li>
+                <li><strong>Temperatura:</strong> Mantener entre 15-21°C. Son sensibles al calor extremo.</li>
+                <li><strong>Sustrato:</strong> Evitar virutas de cedro o pino. Usar papel prensado, heno o alfombrillas.</li>
+                <li><strong>Escondites:</strong> Necesitan lugares donde refugiarse para sentirse seguros.</li>
+            </ul>
+
+            <h3>🧼 Higiene</h3>
+            <ul>
+                <li><strong>Limpieza de jaula:</strong> Limpiar diariamente la bandeja de deposiciones y semanalmente la jaula completa.</li>
+                <li><strong>Baños:</strong> NO bañar a los conejos salvo emergencias. Se limpian solos como los gatos.</li>
+                <li><strong>Cepillado:</strong> Cepillar 2-3 veces por semana (diariamente en épocas de muda).</li>
+                <li><strong>Uñas:</strong> Cortar cada 4-6 semanas.</li>
+                <li><strong>Dientes:</strong> Revisar regularmente que estén bien alineados.</li>
+            </ul>
+
+            <h3>⚕️ Salud</h3>
+            <ul>
+                <li><strong>Veterinario:</strong> Visitas anuales con un veterinario especializado en exóticos.</li>
+                <li><strong>Esterilización:</strong> Recomendada para prevenir problemas de salud y comportamiento.</li>
+                <li><strong>Vacunas:</strong> Dependiendo del país, pueden necesitar vacunas contra mixomatosis y enfermedad hemorrágica.</li>
+                <li><strong>Señales de alerta:</strong> Falta de apetito, diarrea, letargo o dificultad respiratoria requieren atención inmediata.</li>
+            </ul>
+        </section>
+
+        <section id="alimentacion">
+            <h2><span class="emoji">🥬</span>Alimentación Adecuada</h2>
+            
+            <div class="fun-fact">
+                <strong>⚠️ Regla de Oro:</strong> El 80% de la dieta de un conejo debe ser HENO de buena calidad. ¡Es fundamental para su sistema digestivo y dientes!
+            </div>
+
+            <h3>🌾 Heno (80% de la dieta)</h3>
+            <p>El heno debe estar disponible las 24 horas del día. Tipos recomendados:</p>
+            <ul>
+                <li><strong>Heno de timotea:</strong> Ideal para conejos adultos</li>
+                <li><strong>Heno de avena:</strong> Buena alternativa</li>
+                <li><strong>Heno de alfalfa:</strong> Solo para conejos menores de 6 meses (muy rico en calcio)</li>
+            </ul>
+
+            <h3>🥗 Verduras Frescas (15% de la dieta)</h3>
+            <p>Ofrecer diariamente 2-3 tipos diferentes:</p>
+            <ul>
+                <li>Hojas verdes: lechuga romana, rúcula, canónigos, escarola</li>
+                <li>Hierbas: cilantro, perejil, albahaca, menta</li>
+                <li>Vegetales: pimiento, apio, pepino, calabacín</li>
+                <li>Zanahorias (con moderación, por su azúcar)</li>
+            </ul>
+
+            <h3>🔵 Pienso (5% de la dieta)</h3>
+            <ul>
+                <li>Cantidad: 25g por kg de peso del conejo</li>
+                <li>Elegir pienso de alta calidad, rico en fibra (mínimo 18%)</li>
+                <li>Evitar mezclas con semillas, frutas secas o cereales de colores</li>
+            </ul>
+
+            <h3>🍎 Premios y Snacks (Ocasionales)</h3>
+            <ul>
+                <li>Frutas: manzana, pera, fresas, arándanos (pequeñas cantidades)</li>
+                <li>Frecuencia: 1-2 veces por semana máximo</li>
+                <li>Evitar: chocolate, dulces, pan, cereales azucarados</li>
+            </ul>
+
+            <h3>💧 Agua</h3>
+            <p>Agua fresca disponible las 24 horas. Cambiar diariamente. Usar bebedero tipo botella o cuenco pesado.</p>
+
+            <div class="fun-fact">
+                <strong>🚫 Alimentos PROHIBIDOS:</strong> Aguacate, chocolate, cebollas, ajos, patatas, ruibarbo, lechuga iceberg, alimentos procesados para humanos.
+            </div>
+        </section>
+
+        <section id="comportamiento">
+            <h2><span class="emoji">🎭</span>Comportamiento y Comunicación</h2>
+            
+            <h3>Lenguaje Corporal</h3>
+            <div class="behavior-grid">
+                <div class="behavior-item">
+                    <strong>🦘 Binkies (Saltos de Alegría)</strong>
+                    Saltos y giros en el aire. ¡Significa que está muy feliz y juguetón!
+                </div>
+                
+                <div class="behavior-item">
+                    <strong>👃 Frotar la Barbilla</strong>
+                    Están marcando territorio con sus glándulas. Es normal y saludable.
+                </div>
+                
+                <div class="behavior-item">
+                    <strong>🐾 Golpear con las Patas Traseras</strong>
+                    Señal de alerta, miedo o enfado. Están avisando de un peligro.
+                </div>
+                
+                <div class="behavior-item">
+                    <strong>🛏️ Acostarse con Patas Estiradas</strong>
+                    Están relajados y cómodos. Confían en su entorno.
+                </div>
+                
+                <div class="behavior-item">
+                    <strong>👂 Orejas Hacia Atrás</strong>
+                    Pueden estar asustados, molestos o simplemente relajándose.
+                </div>
+                
+                <div class="behavior-item">
+                    <strong>🧹 Acicalarse Mutuamente</strong>
+                    Signo de afecto y vínculo social. Si te lamen, ¡te consideran parte de su familia!
+                </div>
+            </div>
+
+            <h3>Sonidos Que Hacen</h3>
+            <ul>
+                <li><strong>Ronroneo (dientes):</strong> Están contentos, como el ronroneo de un gato</li>
+                <li><strong>Gruñido:</strong> Molestia o advertencia</li>
+                <li><strong>Chillido:</strong> Dolor o miedo extremo (¡atención inmediata!)</li>
+                <li><strong>Zumbido:</strong> Cortejo o excitación</li>
+                <li><strong>Silbido:</strong> Respiración de conejo relajado</li>
+            </ul>
+
+            <h3>🎓 Entrenamiento</h3>
+            <p>Los conejos son muy inteligentes y pueden aprender:</p>
+            <ul>
+                <li><strong>Usar bandeja de arena:</strong> La mayoría aprende naturalmente</li>
+                <li><strong>Responder a su nombre:</strong> Con paciencia y premios</li>
+                <li><strong>Trucos simples:</strong> Dar vueltas, ponerse de pie, pasar por aros</li>
+                <li><strong>Venir cuando se les llama:</strong> Usando refuerzo positivo</li>
+            </ul>
+
+            <div class="fun-fact">
+                <strong>💡 Tip:</strong> Nunca uses castigos con conejos. Solo funciona el refuerzo positivo con premios y cariño.
+            </div>
+        </section>
+
+        <section id="curiosidades">
+            <h2><span class="emoji">✨</span>Datos Curiosos y Fascinantes</h2>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>👀 Visión de 360°</h3>
+                    <p>Los conejos tienen un punto ciego justo frente a su nariz, pero pueden ver casi todo a su alrededor sin mover la cabeza. ¡Perfecto para detectar depredadores!</p>
+                </div>
+
+                <div class="card">
+                    <h3>🦷 Dientes que Nunca Dejan de Crecer</h3>
+                    <p>Sus dientes crecen entre 10-12 cm al año. Por eso necesitan masticar heno constantemente para desgastarlos.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🏃 Velocidad Sorprendente</h3>
+                    <p>Pueden alcanzar velocidades de hasta 70 km/h en carreras cortas y saltar hasta 1 metro de altura.</p>
+                </div>
+
+                <div class="card">
+                    <h3>👂 Orejas Termoreguladoras</h3>
+                    <p>Sus orejas no solo sirven para escuchar. También ayudan a regular su temperatura corporal, ¡funcionan como radiadores!</p>
+                </div>
+
+                <div class="card">
+                    <h3>😴 Duermen con Ojos Abiertos</h3>
+                    <p>Pueden dormir con los ojos abiertos para estar alerta ante peligros. Solo cierran los ojos cuando se sienten completamente seguros.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🦴 Esqueleto Delicado</h3>
+                    <p>Solo el 8% de su peso corporal son huesos (en humanos es 15%). Por eso debemos tener mucho cuidado al cargarlos.</p>
+                </div>
+
+                <div class="card">
+                    <h3>💩 Cecotrofos</h3>
+                    <p>Producen dos tipos de heces. Los cecotrofos son ricos en nutrientes y se los comen directamente del ano. ¡Es totalmente normal y necesario!</p>
+                </div>
+
+                <div class="card">
+                    <h3>🌙 Animales Crepusculares</h3>
+                    <p>Son más activos al amanecer y al atardecer, no durante la noche ni el día. Perfectos para personas que trabajan durante el día.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🎂 Récord de Edad</h3>
+                    <p>El conejo más longevo registrado vivió 18 años y 10 meses. ¡Su nombre era Flopsy y vivió en Australia!</p>
+                </div>
+
+                <div class="card">
+                    <h3>👃 28,000 Papilas Gustativas</h3>
+                    <p>Los humanos tenemos 9,000. Los conejos tienen un sentido del gusto increíblemente desarrollado.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🐰 Embarazo Superfetación</h3>
+                    <p>Las conejas pueden quedar embarazadas mientras ya están embarazadas, desarrollando dos camadas a la vez.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🌍 Especie Invasora</h3>
+                    <p>En Australia, los conejos introducidos en 1859 se convirtieron en una plaga. De 24 conejos iniciales, llegaron a ser 600 millones.</p>
+                </div>
+            </div>
+
+            <div class="fun-fact" style="margin-top: 2rem;">
+                <strong>🌟 Dato Cultural:</strong> Los conejos aparecen en mitologías de todo el mundo. En la cultura china representan la longevidad y la fortuna, mientras que en muchas culturas occidentales simbolizan la fertilidad y la primavera. ¡La liebre de marzo en Alicia en el País de las Maravillas es uno de los conejos más famosos de la literatura!
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="emoji">❤️</span>Consejos Finales para Futuros Dueños</h2>
+            
+            <div class="behavior-grid">
+                <div class="behavior-item">
+                    <strong>⏰ Compromiso de Tiempo</strong>
+                    Los conejos necesitan atención diaria, limpieza, juego e interacción. No son mascotas de bajo mantenimiento.
+                </div>
+                
+                <div class="behavior-item">
+                    <strong>💰 Costos</strong>
+                    Incluye alimentación, veterinario especializado, esterilización, juguetes y accesorios. Calcula un presupuesto mensual.
+                </div>
+                
+                <div class="behavior-item">
+                    <strong>🏠 Espacio</strong>
+                    Necesitan un área segura donde moverse libremente. No son apropiados para jaulas pequeñas las 24 horas.
+                </div>
+                
+                <div class="behavior-item">
+                    <strong>👨‍👩‍👧 No Son Juguetes</strong>
+                    No son ideales para niños muy pequeños. Requieren manejo gentil y pueden asustarse fácilmente.
+                </div>
+                
+                <div class="behavior-item">
+                    <strong>🐇🐇 Mejor en Pareja</strong>
+                    Los conejos son animales sociales. Considera adoptar dos (esterilizados) para que se hagan compañía.
+                </div>
+                
+                <div class="behavior-item">
+                    <strong>🏥 Veterinario Especializado</strong>
+                    No todos los veterinarios tratan conejos. Busca uno especializado en animales exóticos ANTES de adoptar.
+                </div>
+            </div>
+
+            <div class="fun-fact" style="margin-top: 2rem;">
+                <strong>💚 Considera Adoptar:</strong> Hay muchos conejos en refugios y asociaciones esperando un hogar. La adopción es una opción maravillosa que salva vidas. ¡Dale una oportunidad a un conejito que necesita amor!
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>🐰 Creado con amor para todos los amantes de los conejos 🐰</p>
+        <p>Recuerda: Un conejo feliz es un conejo bien cuidado ❤️</p>
+    </footer>
+</body>
+</html>
