@@ -29,5 +29,4 @@ Explora toda la información sobre las razas, cuidados esenciales y curiosidades
 
 Siéntete libre de inspeccionar el código fuente para ver la estructura de maquetación y cómo se aplica el diseño responsivo a un sitio con contenido largo.
 
----
-**¿Eres amante de los conejos?** ¡Comenta en el repositorio!
+
